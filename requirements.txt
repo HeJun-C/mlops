@@ -1,0 +1,74 @@
+# =============================================================================
+# MLOpsCamp - Global Requirements File
+# =============================================================================
+# This file contains all Python dependencies needed across the MLOpsCamp notebooks
+# Install with: pip install -r requirements.txt
+#
+# Note: If you encounter "ModuleNotFoundError: No module named 'sagemaker.workflow'"
+# when importing stepfunctions, try installing a compatible sagemaker version:
+# pip install 'sagemaker<2.150.0' stepfunctions==2.3.0
+# =============================================================================
+
+# -----------------------------------------------------------------------------
+# AWS SDK and Services (for week1 pipeline)
+# -----------------------------------------------------------------------------
+# IMPORTANT: stepfunctions 2.3.0 requires sagemaker.workflow.airflow which was 
+# removed in sagemaker >= 2.150.0. If you get "ModuleNotFoundError: No module 
+# named 'sagemaker.workflow'", install: pip install 'sagemaker<2.150.0' stepfunctions==2.3.0
+boto3>=1.14.38
+botocore>=1.14.38
+sagemaker>=2.1.0,<2.150.0
+stepfunctions==2.3.0
+
+# -----------------------------------------------------------------------------
+# Data Science Core Libraries
+# -----------------------------------------------------------------------------
+numpy>=1.9.0,<2.0
+pandas>=1.0.0
+scipy>=1.0.0
+scikit-learn>=0.24.0
+
+# -----------------------------------------------------------------------------
+# MLflow for Experiment Tracking (week4)
+# -----------------------------------------------------------------------------
+mlflow>=2.0.0
+
+# -----------------------------------------------------------------------------
+# Web Frameworks
+# -----------------------------------------------------------------------------
+# For week1 scikit bring-your-own container
+flask>=1.0.0
+gunicorn>=20.0.0
+
+# For week3 CI/CD iris docker app
+fastapi>=0.100.0
+uvicorn>=0.20.0
+pydantic>=2.0.0
+
+# -----------------------------------------------------------------------------
+# Model Persistence and Caching
+# -----------------------------------------------------------------------------
+joblib>=1.0.0
+redis>=4.0.0
+
+# -----------------------------------------------------------------------------
+# Load Testing (week5)
+# -----------------------------------------------------------------------------
+locust>=2.0.0
+
+# -----------------------------------------------------------------------------
+# Utilities
+# -----------------------------------------------------------------------------
+# Note: pyyaml is handled by sagemaker dependency. If you get build errors,
+# you may need to install Cython first: pip install Cython
+# or use: pip install --only-binary=:all: pyyaml
+setuptools>=65.0.0  # Required for Python 3.12+ (provides distutils)
+requests>=2.20.0
+matplotlib>=3.0.0
+
+# -----------------------------------------------------------------------------
+# Jupyter Notebook Support (for running notebooks)
+# -----------------------------------------------------------------------------
+jupyter>=1.0.0
+ipykernel>=6.0.0
+notebook>=6.0.0
